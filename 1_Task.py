@@ -22,6 +22,7 @@ import random
 
 Vowel = "aeiou"
 
+
 def isVowel(my_ch):
     ch = my_ch.lower()
     if ch not in Vowel:
@@ -60,9 +61,9 @@ print("Clean array = ", clean_array_two)
 my_second_array = sorted(my_array)  # отсортируем массив
 print("Highest numbers =", my_second_array[-3:])  # выведем 3 наибольших числа из исходного массива
 
-print("Minimum value index",my_array.index(min(my_array)))
+print("Minimum value index", my_array.index(min(my_array)))
 
-print("Reversed array",list(reversed(my_array)))
+print("Reversed array", list(reversed(my_array)))
 
 """
 5) Найти общие ключи в двух словарях: 
