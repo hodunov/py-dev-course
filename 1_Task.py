@@ -20,7 +20,7 @@ print(resulting_list)
 """
 import random
 
-Vowel = "aeiou"
+Vowel = "aeiouAEIOU"
 
 
 def is_vowel(my_ch):
