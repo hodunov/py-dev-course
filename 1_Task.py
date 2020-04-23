@@ -23,16 +23,16 @@ import random
 Vowel = "aeiou"
 
 
-def isVowel(my_ch):
+def is_vowel(my_ch):
     ch = my_ch.lower()
     if ch not in Vowel:
         return False
     return True
 
 
-def replaceConsonants(s):
+def replace_consonants(s):
     for i in range(len(s)):
-        if not isVowel(s[i]):
+        if not is_vowel(s[i]):
             if s[i] == ' ':
                 pass
             else:
@@ -42,7 +42,7 @@ def replaceConsonants(s):
 
 my_str = "programming is awesome"
 print(my_str)
-print(replaceConsonants(list(my_str)))
+print(replace_consonants(list(my_str)))
 
 """
 4)Дан массив чисел. [10, 11, 2, 3, 5, 8, 23, 11, 2, 5, 76, 43, 2, 32, 76, 3, 10, 0, 1]  
