@@ -46,7 +46,7 @@ def multiplier(a):
 
 
 multiplier(12)
-multiplier('12')
+# multiplier('12')
 
 
 # ЗАДАЧА-3
@@ -82,5 +82,6 @@ def add_ver(abc):
     return abc + " ver1"
 
 add_ver('abc')
+add_ver('123')
 add_ver('abc')
 add_ver('abc')

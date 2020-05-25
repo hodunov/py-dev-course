@@ -109,11 +109,11 @@ class JsonEditor(object):
         except FileNotFoundError:
             print(f"File {self.json_file} not found")
 
-    def merge_files(self, json_file2):
+    def merge_files(self, json_file2, final_file_name):
         json_data1 = self.read_file()
         json_data2 = JsonEditor(json_file2).read_file()
         results = [json_data1, json_data2]
-        with open('final_file.json', 'w') as final_file:
+        with open(final_file_name, 'w') as final_file:
             json.dump(results, final_file, indent=2)
         return final_file
 
@@ -124,10 +124,10 @@ class JsonEditor(object):
         return os.path.abspath(self.json_file)
 
 
-first_json = JsonEditor("data_2.json")
+first_json = JsonEditor("data.json")
 print(first_json.read_file())
-first_json.merge_files("jsontest.json")
-print(JsonEditor('final_file.json').read_file())
+first_json.merge_files("data_2.json", "data_3.json")
+print(JsonEditor('data_3.json').read_file())
 print(first_json.get_path())
 
 
