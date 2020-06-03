@@ -38,10 +38,7 @@ print(change_string("54321"))
 
 
 def list_sum(list1):
-    counter = 0
-    for element in list1:
-        counter += element
-    return counter
+    return sum(list1)
 
 
 print(list_sum([10, 11, 12]))
