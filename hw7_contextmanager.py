@@ -1,6 +1,7 @@
 # Задача-1
 # Создать объект менеджера контекста который будет переходить в папку которую он принимает на вход.
-# Так же ваш объект должен принимать исключение которое он будет подавлять Если флаг об исключении отсутствует,
+# Так же ваш объект должен принимать исключение которое он будет подавлять
+# Если флаг об исключении отсутствует,
 # исключение должно быть поднято.
 import os
 from contextlib import contextmanager
@@ -39,7 +40,7 @@ with GoTo('world.txt', FileNotFoundError) as cd:
 
 
 @contextmanager
-def ChangeDirectory(path, *exception):
+def change_directory(path, *exception):
     """
     Directory change function,
     which performs the same function as the object in task 1,
@@ -59,7 +60,7 @@ def ChangeDirectory(path, *exception):
         os.chdir(previous_path)
 
 
-with ChangeDirectory('word.txt', FileNotFoundError) as cd2:
+with change_directory('word.txt', FileNotFoundError) as cd2:
     print(os.getcwd())
 
 #
