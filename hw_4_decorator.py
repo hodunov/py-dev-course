@@ -2,9 +2,11 @@
 # Написать свой декоратор который будет проверять остаток от деления числа 100 на результат работы функции ниже.
 # Если остаток от деления = 0, вывести сообщение "We are OK!», иначе «Bad news guys, we got {}» остаток от деления.
 
+from functools import wraps
+
 
 def divided_by_100(func):
-
+    @wraps(func)
     def inner(*args, **kwargs):
         res = 100 % func(*args, **kwargs)
         if res == 0:
@@ -31,10 +33,11 @@ my_sum(7, 3)
 
 
 def check_type(func):
+    @wraps(func)
     def checker(*args):
-        if type(*args) is int:
+        if isinstance(*args, int):
             func(*args)
-        if type(*args) is str:
+        if isinstance(*args, str):
             raise ValueError("string type is not supported")
 
     return checker
@@ -46,6 +49,8 @@ def multiplier(a):
 
 
 multiplier(12)
+
+
 # multiplier('12')
 
 
@@ -61,6 +66,7 @@ def caching(func):
     count_ch = 0
     count_func = 0
 
+    @wraps(func)
     def decorate(*args):
         nonlocal count_ch
         nonlocal count_func
@@ -80,6 +86,7 @@ def caching(func):
 @caching
 def add_ver(abc):
     return abc + " ver1"
+
 
 add_ver('abc')
 add_ver('123')
