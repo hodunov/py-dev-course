@@ -97,25 +97,29 @@ class JsonEditor(object):
         with open(self.json_file, 'w', encoding='utf-8') as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
 
-    def read_file(self):
+    def read_file(self, file_path=None):
         """
         Reading a file
         :return: file data
         """
-        try:
-            with open(self.json_file, "r") as read_file:
-                data = json.load(read_file)
-                return data
-        except FileNotFoundError:
-            print(f"File {self.json_file} not found")
+        if file_path is not None:
+            try:
+                with open(file_path, "r") as read_file:
+                    data = json.load(read_file)
+                    return data
+            except FileNotFoundError:
+                print(f"File {file_path} not found")
+        else:
+            try:
+                with open(self.json_file, "r") as read_file:
+                    data = json.load(read_file)
+                    return data
+            except FileNotFoundError:
+                print(f"File {self.json_file} not found")
 
     def merge_files(self, json_file2, final_file_name):
-        json_data1 = self.read_file()
-        json_data2 = JsonEditor(json_file2).read_file()
-        results = [json_data1, json_data2]
-        with open(final_file_name, 'w') as final_file:
-            json.dump(results, final_file, indent=2)
-        return final_file
+        return JsonEditor(final_file_name).write_file([self.read_file(),
+                                                       self.read_file(json_file2)])
 
     def get_path(self):
         return os.path.realpath(self.json_file)
@@ -125,7 +129,9 @@ class JsonEditor(object):
 
 
 first_json = JsonEditor("data.json")
-print(first_json.read_file())
+print("Try to read file data.json", first_json.read_file())
+
+
 first_json.merge_files("data_2.json", "data_3.json")
 print(JsonEditor('data_3.json').read_file())
 print(first_json.get_path())
