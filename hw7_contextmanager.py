@@ -82,5 +82,5 @@ class TimeChecker(object):
         print(f"Function ends with time = {result}")
 
 
-with TimeChecker() as tc:
+with TimeChecker() as tch:
     time.sleep(1)
