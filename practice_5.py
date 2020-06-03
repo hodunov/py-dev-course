@@ -1,9 +1,12 @@
 # Создайте класс Student,
 # который содержит атрибуты:
 # фамилия и инициалы, номер группы, успеваемость (дикт элементов).
-# Создать класс UserInfoAggregator(), который будет принимать на вход данные о студентах(data_context).
-# У него должен быть метод создания экземпляров класса Students и хранения этих студентов в коллекции.
-# Класс должен иметь возможность вывода фамилий и номеров групп студентов, имеющих оценки,
+# Создать класс UserInfoAggregator(), который будет принимать
+# на вход данные о студентах(data_context).
+# У него должен быть метод создания экземпляров класса
+# Students и хранения этих студентов в коллекции.
+# Класс должен иметь возможность вывода фамилий и
+# номеров групп студентов, имеющих оценки,
 # равные только 4 или 5.
 from prettytable import PrettyTable
 
@@ -25,7 +28,7 @@ class Student(object):
     Main students class
     """
 
-    def __init__(self, first_name, last_name, group, progress):  # progress = dict
+    def __init__(self, first_name, last_name, group, progress):
         self.first_name = first_name
         self.last_name = last_name
         self.group = Group(group)
